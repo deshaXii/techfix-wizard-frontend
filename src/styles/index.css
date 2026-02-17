@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #1F73C9; /* blue sides like screenshots */
+}
+
+/* nice focus */
+*:focus-visible {
+  outline: 2px solid rgba(31, 115, 201, 0.35);
+  outline-offset: 2px;
+}
+
+/* subtle scrollbars */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: rgba(17,24,39,0.12); border-radius: 999px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* --- App chrome themes (side/background) --- */
+body { background: #1F73C9; }
+body[data-theme="ocean"] { background: #1F73C9; }
+body[data-theme="midnight"] { background: #0B1220; }
+body[data-theme="slate"] { background: #475569; }
+
+/* Smooth anchor scroll */
+html { scroll-behavior: smooth; }
+
+/* Simple reveal-on-scroll animations (no extra deps) */
+@keyframes ffFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ff-reveal { opacity: 0; transform: translateY(12px); }
+.ff-reveal.is-visible { opacity: 1; transform: translateY(0); animation: ffFadeUp 520ms ease-out both; }
+
+/* Extra micro-animations for landing/login (used via utility classes) */
+@keyframes ffFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ffBlob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(18px, -14px) scale(1.05); }
+  66% { transform: translate(-12px, 16px) scale(0.98); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes ffShimmer {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+.ff-float { animation: ffFloat 6s ease-in-out infinite; }
+.ff-blob { animation: ffBlob 16s ease-in-out infinite; }
+.ff-shimmer { position: relative; overflow: hidden; }
+.ff-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  transform: translateX(-120%);
+  animation: ffShimmer 2.3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Slightly nicer focus rings */
+:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(31, 115, 201, 0.18); border-radius: 10px; }
