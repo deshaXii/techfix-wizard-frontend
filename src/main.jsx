@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/index.css';
+import 'leaflet/dist/leaflet.css';
 import { App } from './app/App.jsx';
 import { I18nProvider } from './lib/i18n.jsx';
 import { ThemeProvider } from './lib/theme.jsx';

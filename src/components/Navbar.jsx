@@ -54,9 +54,12 @@ export default function Navbar() {
 
   const links = [
     { label: t('nav.home'), to: '/' },
-    { label: t('nav.wizard'), to: '/wizard' },
+    { label: t('nav.services'), to: '/#services' },
+    { label: t('nav.testimonials'), to: '/#testimonials' },
+    { label: t('nav.nearby'), to: '/#nearby' },
     { label: t('nav.how'), to: '/#how' },
     { label: t('nav.faq'), to: '/#faq' },
+    { label: t('nav.wizard'), to: '/wizard' },
   ];
 
   return (

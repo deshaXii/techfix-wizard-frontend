@@ -26,7 +26,8 @@ export const api = {
   model: (id) => request(`/api/v1/catalog/models/${id}`),
   repairs: (modelId) => request(`/api/v1/catalog/models/${modelId}/repairs`),
   createOffer: (payload) => request('/api/v1/offers', { method: 'POST', body: JSON.stringify(payload) }),
-  offer: (id) => request(`/api/v1/offers/${id}`)
+  offer: (id) => request(`/api/v1/offers/${id}`),
+  nearbyShops: ({ lat, lng, radius = 2500 }) => request(`/api/v1/places/nearby?lat=${encodeURIComponent(lat)}&lng=${encodeURIComponent(lng)}&radius=${encodeURIComponent(radius)}`)
 };
 
 export function formatEUR(cents) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import AppShell from './AppShell.jsx';
+import MarketingLayout from './MarketingLayout.jsx';
 import WizardStep1 from '../features/wizard/WizardStep1.jsx';
 import WizardStep2 from '../features/wizard/WizardStep2.jsx';
 import WizardStep3 from '../features/wizard/WizardStep3.jsx';
@@ -33,20 +34,55 @@ function ScrollToHash() {
 
 function AppRoutes() {
   return (
-    <AppShell>
+    <>
       <ScrollToHash />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <MarketingLayout>
+              <HomePage />
+            </MarketingLayout>
+          }
+        />
 
-        <Route path="/wizard" element={<WizardStep1 />} />
-        <Route path="/wizard/repairs" element={<WizardStep2 />} />
-        <Route path="/wizard/finish" element={<WizardStep3 />} />
+        <Route
+          path="/wizard"
+          element={
+            <AppShell>
+              <WizardStep1 />
+            </AppShell>
+          }
+        />
+        <Route
+          path="/wizard/repairs"
+          element={
+            <AppShell>
+              <WizardStep2 />
+            </AppShell>
+          }
+        />
+        <Route
+          path="/wizard/finish"
+          element={
+            <AppShell>
+              <WizardStep3 />
+            </AppShell>
+          }
+        />
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={
+            <AppShell>
+              <LoginPage />
+            </AppShell>
+          }
+        />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </AppShell>
+    </>
   );
 }
 

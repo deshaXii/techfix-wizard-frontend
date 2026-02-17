@@ -5,6 +5,9 @@ const translations = {
     nav: {
       home: 'Home',
       wizard: 'Repair Wizard',
+      services: 'Services',
+      testimonials: 'Testimonials',
+      nearby: 'Nearby shops',
       how: 'How it works',
       faq: 'FAQ',
       contact: 'Contact',
@@ -205,6 +208,9 @@ const translations = {
     nav: {
       home: 'Home',
       wizard: 'Reparatie-wizard',
+      services: 'Services',
+      testimonials: 'Reviews',
+      nearby: 'Dichtbij',
       how: 'Hoe werkt het',
       faq: 'FAQ',
       contact: 'Contact',

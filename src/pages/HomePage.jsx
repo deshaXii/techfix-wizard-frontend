@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useI18n } from '../lib/i18n.jsx';
 import { useRevealOnScroll } from '../lib/useReveal.jsx';
 import { Icon } from '../components/icons.jsx';
+import NearbyRepairShops from '../components/NearbyRepairShops.jsx';
 
 function Pill({ children }) {
   return (
@@ -186,7 +187,81 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="scroll-mt-24">
+      <section 
+      {/* SERVICES */}
+      <section id="services" className="scroll-mt-28">
+        <SectionTitle
+          eyebrow="Services"
+          title="Everything you need for a smooth repair."
+          desc="From quick diagnostics to transparent pricing — pick a service and we’ll guide you."
+        />
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+          <FeatureCard
+            icon={<Icon.Search className="h-5 w-5" />}
+            title="Instant quote"
+            desc="Choose your device and repairs — get pricing in minutes."
+          />
+          <FeatureCard
+            icon={<Icon.Check className="h-5 w-5" />}
+            title="Warranty-ready"
+            desc="Clear repair details and options — built for trust."
+          />
+          <FeatureCard
+            icon={<Icon.MapPin className="h-5 w-5" />}
+            title="Pickup or in-store"
+            desc="Drop by a shop or ship your device — your choice."
+          />
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="scroll-mt-28">
+        <SectionTitle
+          eyebrow="Testimonials"
+          title="People love fast, honest repairs."
+          desc="A few words from customers who used FastoFix to get back on track."
+        />
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {[
+            {
+              name: 'Mina',
+              title: 'iPhone screen replacement',
+              quote: '“The wizard was super clear. I got a quote instantly and the repair was done the same day.”'
+            },
+            {
+              name: 'Sara',
+              title: 'Laptop battery',
+              quote: '“No hidden costs. I knew the price before I went to the shop.”'
+            },
+            {
+              name: 'Omar',
+              title: 'Charging port',
+              quote: '“Fast, clean, professional. The nearby shops section helped me find a place around me.”'
+            }
+          ].map((t) => (
+            <div key={t.name} className="ff-reveal bg-white border border-primary-100 rounded-3xl shadow-soft p-6">
+              <div className="text-sm font-bold text-ink">{t.name}</div>
+              <div className="mt-1 text-xs font-semibold text-primary">{t.title}</div>
+              <div className="mt-4 text-sm text-ink/70 leading-relaxed">{t.quote}</div>
+              <div className="mt-5 h-[2px] w-10 bg-primary/30 rounded-full" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* NEARBY */}
+      <section id="nearby" className="scroll-mt-28">
+        <SectionTitle
+          eyebrow="Nearby"
+          title="Repair shops around you."
+          desc="Allow location access to see nearby phone/laptop repair shops on the map."
+        />
+        <div className="mt-8">
+          <NearbyRepairShops />
+        </div>
+      </section>
+
+id="how" className="scroll-mt-24">
         <SectionTitle
           eyebrow={t('home.howEyebrow')}
           title={t('home.howTitle')}
